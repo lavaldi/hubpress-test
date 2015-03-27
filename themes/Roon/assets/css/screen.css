@@ -1110,10 +1110,10 @@ body>footer .photo.circle, .post-footer .photo.circle {
     border: 1px solid rgba(33, 39, 45, 0.17);
 }
 body>footer .photo.circle span, .post-footer .photo.circle span {
-    top: 18px;
+    /*top: 18px;
     right: 18px;
     bottom: 18px;
-    left: 18px;
+    left: 18px;*/
     background-size: contain;
 }
 
