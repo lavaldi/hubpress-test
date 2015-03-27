@@ -1,0 +1,19 @@
+= Ignorar temporalmente archivos en git
+:published_at: 2015-03-19
+:hp-tags: Blog, Git, unchanged
+
+Hacer caso omiso a algunos archivos temporalmente en git es muy fácil (solo que a mi siempre se me olvida el comando) así que hago esta nota mental para poder buscarla rápidamente aquí.
+
+Se ejecuta en la consola de git el siguiente comando:
+
+[source, git]
+----
+git update-index --assume-unchanged <file>
+----
+Luego, si queremos volver a considerar los cambios en este archivo, ejecutamos lo siguiente:
+
+[source, git]
+----
+git update-index --no-assume-unchanged <file>
+----
+Done!
