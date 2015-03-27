@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Instalar Wordpress Multisite en Apache localhost usando subdominios</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//lavaldi.github.io/themes/Casper/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//lavaldi.github.io/themes/Casper/assets/css/screen.css?v=1.0.0" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://lavaldi.github.io/2015/03/20/Instalar-Wordpress-Multisite-en-Apache-localhost-usando-subdominios.html" />
+    
+    <meta property="og:site_name" content="La Valdi" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Instalar Wordpress Multisite en Apache localhost usando subdominios" />
+    <meta property="og:description" content="Editar el host file En Windows este archivo se encuentra en la ruta C:\Windows\System32\drivers\etc, en Mac y Linux se encuentra en /etc/hosts. En Windows tienes que crear este archivo en algún otro lado y luego..." />
+    <meta property="og:url" content="https://lavaldi.github.io/2015/03/20/Instalar-Wordpress-Multisite-en-Apache-localhost-usando-subdominios.html" />
+    <meta property="article:published_time" content="2015-03-20T05:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-03-27T03:37:40.754Z" />
+    <meta property="article:tag" content="Blog" />
+    <meta property="article:tag" content="Tutorial" />
+    <meta property="article:tag" content="WordPress" />
+    <meta property="article:tag" content="multisite" />
+    <meta property="article:tag" content="localhost" />
+    <meta property="article:tag" content="subdominios" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Instalar Wordpress Multisite en Apache localhost usando subdominios" />
+    <meta name="twitter:description" content="Editar el host file En Windows este archivo se encuentra en la ruta C:\Windows\System32\drivers\etc, en Mac y Linux se encuentra en /etc/hosts. En Windows tienes que crear este archivo en algún otro lado y luego..." />
+    <meta name="twitter:url" content="https://lavaldi.github.io/2015/03/20/Instalar-Wordpress-Multisite-en-Apache-localhost-usando-subdominios.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "La Valdi",
+    "author": {
+        "@type": "Person",
+        "name": "Claudia",
+        "image": "https://avatars.githubusercontent.com/u/1221474?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": ""
+    },
+    "headline": "Instalar Wordpress Multisite en Apache localhost usando subdominios",
+    "url": "https://lavaldi.github.io/2015/03/20/Instalar-Wordpress-Multisite-en-Apache-localhost-usando-subdominios.html",
+    "datePublished": "2015-03-20T05:00:00.000Z",
+    "dateModified": "2015-03-27T03:37:40.754Z",
+    "keywords": "Blog,  Tutorial,  WordPress,  multisite,  localhost,  subdominios",
+    "description": "Editar el host file En Windows este archivo se encuentra en la ruta C:\\Windows\\System32\\drivers\\etc, en Mac y Linux se encuentra en /etc/hosts. En Windows tienes que crear este archivo en algún otro lado y luego..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="La Valdi" href="https://lavaldi.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+<body class="post-template tag-Blog tag-Tutorial tag-WordPress tag-multisite tag-localhost tag-subdominios">
+
+    
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="https://lavaldi.github.io">Home</a>
+        <!-- <a class="subscribe-button icon-feed" href="https://lavaldi.github.io/rss/">Subscribe</a> -->
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-Blog tag-Tutorial tag-WordPress tag-multisite tag-localhost tag-subdominios">
+
+        <header class="post-header">
+            <h1 class="post-title">Instalar Wordpress Multisite en Apache localhost usando subdominios</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-03-20">20 March 2015</time>  on <a href="https://lavaldi.github.io/tag/Blog">Blog</a>, <a href="https://lavaldi.github.io/tag/Tutorial"> Tutorial</a>, <a href="https://lavaldi.github.io/tag/WordPress"> WordPress</a>, <a href="https://lavaldi.github.io/tag/multisite"> multisite</a>, <a href="https://lavaldi.github.io/tag/localhost"> localhost</a>, <a href="https://lavaldi.github.io/tag/subdominios"> subdominios</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div class="sect1">
+<h2 id="_editar_el_host_file">Editar el host file</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>En Windows este archivo se encuentra en la ruta <code>C:\Windows\System32\drivers\etc</code>, en Mac y Linux se encuentra en <code>/etc/hosts</code>. En Windows tienes que crear este archivo en algún otro lado y luego reemplazarlo ya que no te deja hacerlo directamente.</p>
+</div>
+<div class="paragraph">
+<p>Lo modificas de tal manera que quede algo así:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-apache" data-lang="apache">127.0.0.1       example.com
+127.0.0.1       site1.example.com
+127.0.0.1       site2.example.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cambia example.com por la ruta que desees.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_editar_archivo_de_configuraci_n_de_apache">Editar archivo de configuración de Apache</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Buscamos el archivo <code>httpd-vhosts.conf</code> de XAMPP/LAMPP/MAMP. En Windows está en <code>C:\xampp\apache\conf\extra</code>.</p>
+</div>
+<div class="paragraph">
+<p>Checamos que la línea <code>NameVirtualHost *:80</code> esté en el archivo y sin comentar.</p>
+</div>
+<div class="paragraph">
+<p>Luego pasamos a agregar el siguiente bloque de código:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-apache" data-lang="apache">&lt;virtualhost *:80&gt;
+	DocumentRoot "[RUTA DE TU INSTALACIÓN DE WORDPRESS]"
+	ServerName example.com
+	ServerAlias *.example.com
+	&lt;directory "[RUTA DE TU INSTALACIÓN DE WORDPRESS]"&gt;
+		AllowOverride All
+		Options Indexes FollowSymLinks
+		Order allow,deny
+		Allow from all
+	&lt;/directory&gt;
+&lt;/virtualhost&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cambia example.com por la ruta que desees.</p>
+</div>
+<div class="paragraph">
+<p>Reiniciamos o iniciamos Apache y pasamos a la instalación de wordpress.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instalar_wordpress_multisite">Instalar Wordpress Multisite</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="http://codex.wordpress.org/Installing_WordPress">Instalamos</a> <a href="https://wordpress.org/download/">Wordpress</a> por el camino normal, luego en el archivos <code>wp-config.php</code>, después de:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-php" data-lang="php">/* That's all, stop editing! Happy blogging. */</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>colocamos la siguiente línea:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-php" data-lang="php">define( 'WP_ALLOW_MULTISITE', true );</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Guardamos el archivo.</p>
+</div>
+<div class="paragraph">
+<p>Ahora en vamos al menú <strong>Herramientas&gt;Configuración de la Red</strong> donde se te pedirá que elijas entre subdominios o subdirectorios para la instalación: en este caso elegiremos subdominios. Luego llenamos los datos y damos Instalar.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://devfrontend.files.wordpress.com/2015/03/crear-red-multisitio-wordpress.png" alt="Instalar Wordpress Multisite">
+</div>
+</div>
+<div class="paragraph">
+<p>A continuación, en esa misma pantalla, veremos una serie de códigos que debemos añadir manualmente a los archivos wp-config.php y .htaccess para <strong>terminar la activación de la red multisitio en WordPress</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Guardas ambos archivos.</p>
+</div>
+<div class="paragraph">
+<p>Y listo! Tu Wordpress Multisite está instalado :)</p>
+</div>
+<div class="paragraph">
+<p>Ahora, cuando accedas de nuevo a la <strong>administración de tu nueva red WordPress</strong> descubrirás que hay varios cambios:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Nuevo submenú en <strong>Inicio&gt;Mis sitios</strong> en los que estará la lista de sitios creados, en principio solo el principal. Desde esta pantalla puedes acceder a visitar cada sitio y su escritorio.</p>
+</li>
+<li>
+<p>Nuevo menú en la barra de administración denominado <strong>Mis sitios</strong> desde el que acceder a las herramientas del Administrador de la red:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Escritorio de la red.</p>
+</li>
+<li>
+<p>Sitios de la red, donde puede administrarlos, o sea, crearlos o incluso borrarlos.</p>
+</li>
+<li>
+<p>Usuarios de la red, de todos los sitios.</p>
+</li>
+<li>
+<p>Temas disponibles para la red, que puedes activar o desactivar para que estén disponibles en todos los sitios de la red.</p>
+</li>
+<li>
+<p>Plugins disponibles para la red, que puedes activar o desactivar para toda la red.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Ahora hay un nuevo tipo de usuario, el Super administrador o Administrador de la red. Puedes asignar a cualquier usuario la capacidad de administrar la red mediante una nueva casilla que aparece cuando lo editas.</p>
+</li>
+<li>
+<p>En los <strong>Ajustes &gt; Generales</strong> hay un nuevo ajuste donde establecer el idioma por defecto para la red, que debes cambiar nada más terminar la instalación a Spanish;Castilian pues nada más activar la red queda por defecto en Inglés.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://devfrontend.files.wordpress.com/2015/03/nuevo-sitio-red-wordpress-multisitio1.png" alt="Instalar Wordpress Multisite">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_recursos">Recursos:</h3>
+<div class="paragraph">
+<p><a href="http://premium.wpmudev.org/blog/ultimate-guide-multisite/">The Ultimate Guide to Wordpress Multisite</a></p>
+</div>
+</div>
+</div>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="" style="background-image: url(https://avatars.githubusercontent.com/u/1221474?v=3)"><span class="hidden">Claudia's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="">Claudia</a></h4>
+
+                    <p>Read <a href="">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Perú</span>
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Instalar%20Wordpress%20Multisite%20en%20Apache%20localhost%20usando%20subdominios&amp;url=https://lavaldi.github.io/2015/03/20/Instalar-Wordpress-Multisite-en-Apache-localhost-usando-subdominios.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://lavaldi.github.io/2015/03/20/Instalar-Wordpress-Multisite-en-Apache-localhost-usando-subdominios.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://lavaldi.github.io/2015/03/20/Instalar-Wordpress-Multisite-en-Apache-localhost-usando-subdominios.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+    </article>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="https://lavaldi.github.io">La Valdi</a> &copy; 2015</section>
+        <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+    <script type="text/javascript" src="//lavaldi.github.io/themes/Casper/assets/js/jquery.fitvids.js?v=1.0.0"></script>
+    <script type="text/javascript" src="//lavaldi.github.io/themes/Casper/assets/js/index.js?v=1.0.0"></script>
+
+</body>
+</html>
