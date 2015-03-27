@@ -1,0 +1,25 @@
+= Hola mundo!
+:hp-tags: Blog
+:published_at: 2015-03-09
+
+Hola mundo! o debería decir:
+
+[source,css]
+----
+.class{
+     content:"Hola Mundo!";
+}
+----
+
+o tal vez:
+
+[source,javascript]
+----
+console.log("Hola Mundo!");
+----
+
+Bueno, como sea, empiezo este blog porque hace tiempo que no comparto las cosas que aprendo mientras me voy desarrollando como frontend developer y, claro, para compartir algunas cosas más de las que voy haciendo por la vida.
+
+Espero les pueda ser de interés y de ayuda lo que les comparta por este medio.
+
+Don't worry, be happy!!!
