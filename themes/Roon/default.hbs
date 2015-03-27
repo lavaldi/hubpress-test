@@ -41,7 +41,7 @@
 
     <script>
 
-        {{#is post}}
+
             function get_text(el) {
                 ret = "";
                 var length = el.childNodes.length;
@@ -63,7 +63,7 @@
                     document.getElementById('js-reading-time').appendChild(read_time_node);
                 }
             }
-        {{/is}}
+        
 
         function no_schema_links () {
             var links = document.querySelectorAll('.js-remove-domain-schema');
