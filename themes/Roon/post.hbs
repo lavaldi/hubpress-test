@@ -122,31 +122,6 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        jQuery(function(){
-            var share_modal = jQuery("#share_modal"),
-                update_social_links = true;
-
-                jQuery("#btn_share").click(function(){
-                var that = $(this);
-                share_modal.fadeIn(200);
-                return false;
-            });
-
-            share_modal.click(function(e){
-                if (e.target.className == "wrap" || e.target.id == "share_modal") {
-                    share_modal.fadeOut(200);
-                }
-                return false;
-            });
-
-            share_modal.find("div.inner > header > a.close").click(function(){
-                share_modal.fadeOut(200);
-                return false;
-            });
-        });
-    </script>
-
 {{/post}}
 
 {{!-- TODO: Add next/prev posts --}}
