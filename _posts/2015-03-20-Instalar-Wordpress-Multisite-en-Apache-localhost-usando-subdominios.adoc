@@ -1,0 +1,89 @@
+= Instalar Wordpress Multisite en Apache localhost usando subdominios
+:published_at: 2015-03-20
+:hp-tags: Blog, Tutorial, WordPress, multisite, localhost, subdominios
+
+:uri-instawp: http://codex.wordpress.org/Installing_WordPress
+:uri-wp: https://wordpress.org/download/
+:uri-ref: http://premium.wpmudev.org/blog/ultimate-guide-multisite/
+
+== Editar el host file
+
+En Windows este archivo se encuentra en la ruta `C:\Windows\System32\drivers\etc`, en Mac y Linux se encuentra en `/etc/hosts`. En Windows tienes que crear este archivo en algún otro lado y luego reemplazarlo ya que no te deja hacerlo directamente.
+
+Lo modificas de tal manera que quede algo así:
+[source, apache]
+----
+127.0.0.1       example.com
+127.0.0.1       site1.example.com
+127.0.0.1       site2.example.com
+----
+Cambia example.com por la ruta que desees.
+
+== Editar archivo de configuración de Apache
+
+Buscamos el archivo `httpd-vhosts.conf` de XAMPP/LAMPP/MAMP. En Windows está en `C:\xampp\apache\conf\extra`.
+
+Checamos que la línea `NameVirtualHost *:80` esté en el archivo y sin comentar.
+
+Luego pasamos a agregar el siguiente bloque de código:
+
+[source, apache]
+----
+<virtualhost *:80>
+	DocumentRoot "[RUTA DE TU INSTALACIÓN DE WORDPRESS]"
+	ServerName example.com
+	ServerAlias *.example.com
+	<directory "[RUTA DE TU INSTALACIÓN DE WORDPRESS]">
+		AllowOverride All
+		Options Indexes FollowSymLinks
+		Order allow,deny
+		Allow from all
+	</directory>
+</virtualhost>
+----
+Cambia example.com por la ruta que desees.
+
+Reiniciamos o iniciamos Apache y pasamos a la instalación de wordpress.
+
+== Instalar Wordpress Multisite
+
+{uri-instawp}[Instalamos] {uri-wp}[Wordpress] por el camino normal, luego en el archivos `wp-config.php`, después de:
+
+[source, php]
+----
+/* That's all, stop editing! Happy blogging. */
+----
+colocamos la siguiente línea:
+[source, php]
+----
+define( 'WP_ALLOW_MULTISITE', true );
+----
+Guardamos el archivo.
+
+Ahora en vamos al menú *Herramientas>Configuración de la Red* donde se te pedirá que elijas entre subdominios o subdirectorios para la instalación: en este caso elegiremos subdominios. Luego llenamos los datos y damos Instalar.
+
+image::https://devfrontend.files.wordpress.com/2015/03/crear-red-multisitio-wordpress.png[Instalar Wordpress Multisite]
+
+A continuación, en esa misma pantalla, veremos una serie de códigos que debemos añadir manualmente a los archivos wp-config.php y .htaccess para *terminar la activación de la red multisitio en WordPress*.
+
+Guardas ambos archivos.
+
+Y listo! Tu Wordpress Multisite está instalado :)
+
+Ahora, cuando accedas de nuevo a la *administración de tu nueva red WordPress* descubrirás que hay varios cambios:
+
+* Nuevo submenú en *Inicio>Mis sitios* en los que estará la lista de sitios creados, en principio solo el principal. Desde esta pantalla puedes acceder a visitar cada sitio y su escritorio.
+* Nuevo menú en la barra de administración denominado *Mis sitios* desde el que acceder a las herramientas del Administrador de la red:
+- Escritorio de la red.
+- Sitios de la red, donde puede administrarlos, o sea, crearlos o incluso borrarlos.
+- Usuarios de la red, de todos los sitios.
+- Temas disponibles para la red, que puedes activar o desactivar para que estén disponibles en todos los sitios de la red.
+- Plugins disponibles para la red, que puedes activar o desactivar para toda la red.
+* Ahora hay un nuevo tipo de usuario, el Super administrador o Administrador de la red. Puedes asignar a cualquier usuario la capacidad de administrar la red mediante una nueva casilla que aparece cuando lo editas.
+* En los *Ajustes > Generales* hay un nuevo ajuste donde establecer el idioma por defecto para la red, que debes cambiar nada más terminar la instalación a Spanish;Castilian pues nada más activar la red queda por defecto en Inglés.
+
+image::https://devfrontend.files.wordpress.com/2015/03/nuevo-sitio-red-wordpress-multisitio1.png[Instalar Wordpress Multisite]
+
+=== Recursos:
+
+{uri-ref}[The Ultimate Guide to Wordpress Multisite]
