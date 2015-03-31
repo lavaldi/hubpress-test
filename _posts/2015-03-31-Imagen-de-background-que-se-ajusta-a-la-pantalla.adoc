@@ -1,0 +1,18 @@
+= Imagen de background que se ajusta a la pantalla
+:hp-tags: Tutorial, Javascript, jQuery, CSS, background
+:uri-csstricks: http://css-tricks.com/perfect-full-page-background-image/
+
+_Artículo original escrito inglés en {uri-csstricks}[CSS-TRICKS]_
+
+El objetivo de este tutorial es lograr una imagen de fondo en una web que cubra por completo la ventana del navegador en todo momento. A continuación algunos detalles:
+
+* Rellena página entera con la imagen, sin espacios en blanco.
+* Se escala la imagen según sea necesario.
+* Retiene proporciones de la imagen (relación de aspecto).
+* La imagen está centrada en la página.
+* No provoca barras de desplazamiento.
+* Compatible con los diferentes navegadores.
+
+== Impresionante, fácil y progresivo camino del CSS
+
+Esto se puede hacer simplemente a través de CSS, gracias a la propiedad background-size de CSS3. Vamos a utilizar el elemento html (mejor que el body, ya que es siempre por lo menos la altura de la ventana del navegador). Hemos establecido un fondo fijo y centrado en él, y luego ajustar su tamaño usando <background-size:cover>.
