@@ -1,6 +1,9 @@
 = Imagen de background que se ajusta a la pantalla
+:published_at: 2014-02-17
 :hp-tags: Tutorial, Javascript, jQuery, CSS, background
+
 :uri-csstricks: http://css-tricks.com/perfect-full-page-background-image/
+:uri-code: http://css-tricks.com/examples/FullPageBackgroundImage.zip
 
 _Artículo original escrito inglés en {uri-csstricks}[CSS-TRICKS]_
 
@@ -15,4 +18,163 @@ El objetivo de este tutorial es lograr una imagen de fondo en una web que cubra 
 
 == Impresionante, fácil y progresivo camino del CSS
 
-Esto se puede hacer simplemente a través de CSS, gracias a la propiedad background-size de CSS3. Vamos a utilizar el elemento html (mejor que el body, ya que es siempre por lo menos la altura de la ventana del navegador). Hemos establecido un fondo fijo y centrado en él, y luego ajustar su tamaño usando <background-size:cover>.
+Esto se puede hacer simplemente a través de CSS, gracias a la propiedad `background-size` de CSS3. Vamos a utilizar el elemento `html` (mejor que el body, ya que es siempre por lo menos la altura de la ventana del navegador). Hemos establecido un fondo fijo y centrado en él, y luego ajustar su tamaño usando `background-size:cover`.
+
+[source, css]
+----
+html { 
+  background: url(images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
+}
+----
+
+*Funciona en:*
+
+* Safari 3+
+* Cualquier Chrome.
+* IE 9+
+* Opera 10+.
+* Firefox 3.6+.
+
+== Solo con CSS - Técnica #1
+
+Aquí se utiliza un elemento `<img>`, que será capaz de cambiar al tamaño de cualquier navegador. Hemos establecido un `min-height` que lo que hace es llenar la ventana del navegador en posición vertical, y establecido un width de 100%, lo que mantiene el llenado horizontalmente. También establecemos un `min-width` de la anchura de la imagen para que la imagen nunca se haga más pequeña de lo que realmente es.
+
+Luego utilizamos la media query para comprobar si la ventana del navegador es más pequeña que la imagen y usamos un combo de porcetaje en la izquierda y un margen izquierdo negativo para mantenerlo centrado independientemente.
+
+Aquí está el CSS: 
+
+[source, css]
+----
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+----
+
+*Funciona en:*
+
+* Cualquier versión de Safari, Chrome, Opera, Firefox.
+* IE 7/8: Funciona, no se centra en los tamaños pequeños, pero cubre bien la pantalla.
+* IE 9: Funciona.
+
+== Solo CSS Técnica #2:
+
+Otra forma muy simple de manejar esto es para poner una etiqueta `<img>`, de posición fija a la parte superior izquierda, y darle un `min-width` y `min-height` de 100%, sin deformarse.
+
+Sin embargo, esto no centra la imagen y eso es lo que queremos... así que, podemos arreglar eso poniendo la imagen en un div. A ese div lo haremos el doble de grande que la ventana del navegador. Entonces la imagen se colocará, sin deformarse y cubriendo la ventana visible del explorador.
+
+[source, html]
+----
+<div id="bg">
+  <img src="images/bg.jpg" alt="">
+</div>
+----
+
+[source, css]
+----
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+----
+
+*Funciona en:*
+
+* Sarafi, Chrome, Firefox.
+* IE8+.
+* En Opera (cualquier versión) e IE no funciona, no se sabe por qué.
+
+== Método con jQuery:
+
+Toda esta idea se convierte en mucho más fácil (desde una perspectiva CSS) si sabemos que la relación de aspecto de la imagen (la `<img>` que intentamos utilizar como fondo) es mayor o menor que la relación de aspecto actual de la ventana del navegador. Si es inferior, lo que podemos  hacer es establecer sólo el ancho a 100% en la imagen y así llenar tanto en altura como en anchura. Si es mayor, podemos establecer sólo la altura a 100% y sabemos que va a llenar la altura y anchura.
+
+Tenemos acceso a esta información a través de JavaScript. Y en esta oportunidad nos apoyamos en jQuery:
+
+[source, html]
+----
+<img src="images/bg.jpg" id="bg" alt="">
+----
+
+[source, css]
+----
+#bg { position: fixed; top: 0; left: 0; }
+.bgwidth { width: 100%; }
+.bgheight { height: 100%; }
+----
+
+[source, javascript]
+----
+$(window).load(function() {    
+
+	var theWindow        = $(window),
+	    $bg              = $("#bg"),
+	    aspectRatio      = $bg.width() / $bg.height();
+	    			    		
+	function resizeBg() {
+		
+		if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
+		    $bg
+		    	.removeClass()
+		    	.addClass('bgheight');
+		} else {
+		    $bg
+		    	.removeClass()
+		    	.addClass('bgwidth');
+		}
+					
+	}
+	                   			
+	theWindow.resize(resizeBg).trigger("resize");
+
+});
+----
+
+Esto no tiene en cuenta el centrado, pero definitivamente se podría alterar este código para hacer eso.
+
+*Funciona en:*
+
+* IE7+.
+* Cualquier otro navegador.
+
+'''
+
+[.text-center]
+=== Disfruta!
+
+{uri-code}[**+++<u> Descargar los Códigos </u>+++**]
