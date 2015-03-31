@@ -1358,6 +1358,11 @@ body.touch.user article .readmore {
     filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1
 }
+
+.text-center{
+  text-align: center;
+}
+
 @media only screen and (max-width: 1200px) {
     body.user article.feature .wrap {
         padding-top: 25%
