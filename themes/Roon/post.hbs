@@ -50,7 +50,7 @@
                 {{/if}}
 
                 <div class="details">
-                    <h4><a href="{{url}}" class="url n">{{name}}</a></h4>
+                    <h4><a href="{{@blog.url}}" class="url n">{{name}}</a></h4>
                     {{#if location}}{{location}}<br>{{/if}}
                     {{#if website}}<a href="{{website}}" class="js-remove-domain-schema">{{website}}</a>{{/if}}
                 </div>
@@ -60,6 +60,8 @@
                 <div class="inner">
                     {{!-- TODO: Parse HTML for links --}}
                     {{bio}}
+
+                    On the narrow road... | Co-founder <a href="https://twitter.com/spinitytech" target="_blank">@SpinityTech</a> | <a href="https://twitter.com/bonzzu" target="_blank">@bonzzu</a> team | #Frontend | <a href="https://twitter.com/yisus_freak" target="_blank">#JesusFreak</a> | <a href="https://medium.com/@lavaldi_" target="_blank">https://medium.com/@lavaldi_</a>
                 </div>
             </div>
 
