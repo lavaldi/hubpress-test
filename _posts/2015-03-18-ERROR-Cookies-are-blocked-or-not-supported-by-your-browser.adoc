@@ -6,12 +6,12 @@ La semana pasada tuve este error en un blog de WordPress que estoy desarrollando
 
 Pasos para depuración:
 
-<1> Ve a la página de inicio de sesión (generalmente es así example.com/wp-login.php).
-<2> Presiona `Ctrl + Shift + c` (o da clic derecho y selecciona "Inspeccionar elemento") para abrir las herramientas de desarrolladores.
-<3> Introduce las credenciales en el formulario de login y pulsa Entrar. Luego obtendrás el error.
-<4> En el panel de herramientas de desarrollo ve al panel de Network.
-<5> En la pestaña de Network haz clic en el primer elemento (será wp-login.php) y selecciona la pestaña Headers y desplázate hasta el final.
-<6> Mira la(s) cabecera(s) Set Cookie, presta atención a path= y domain=.
+. Ve a la página de inicio de sesión (generalmente es así example.com/wp-login.php).
+. Presiona `Ctrl + Shift + c` (o da clic derecho y selecciona "Inspeccionar elemento") para abrir las herramientas de desarrolladores.
+. Introduce las credenciales en el formulario de login y pulsa Entrar. Luego obtendrás el error.
+. En el panel de herramientas de desarrollo ve al panel de Network.
+. En la pestaña de Network haz clic en el primer elemento (será wp-login.php) y selecciona la pestaña Headers y desplázate hasta el final.
+. Mira la(s) cabecera(s) Set Cookie, presta atención a path= y domain=.
 
 image::https://devfrontend.files.wordpress.com/2015/03/wordpress-cookie-debug1.png[ERROR: Cookies are blocked or not supported by your browser]
 
