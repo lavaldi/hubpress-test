@@ -32,10 +32,10 @@
     <meta property="og:site_name" content="La Valdi" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="ERROR: Cookies are blocked or not supported by your browser" />
-    <meta property="og:description" content="La semana pasada tuve este error en un blog de WordPress que estoy desarrollando, así que hago este post como una nota por si me vuelve a salir y puedo recurrir a mi propio blog. Pasos para depuración: 1 Ve..." />
+    <meta property="og:description" content="La semana pasada tuve este error en un blog de WordPress que estoy desarrollando, así que hago este post como una nota por si me vuelve a salir y puedo recurrir a mi propio blog. Pasos para depuración: Ve a..." />
     <meta property="og:url" content="https://lavaldi.github.io/2015/03/18/ERROR-Cookies-are-blocked-or-not-supported-by-your-browser.html" />
     <meta property="article:published_time" content="2015-03-18T05:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-03-31T17:37:07.900Z" />
+    <meta property="article:modified_time" content="2015-03-31T17:40:50.081Z" />
     <meta property="article:tag" content="Blog" />
     <meta property="article:tag" content="WordPress" />
     <meta property="article:tag" content="cookies" />
@@ -43,7 +43,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="ERROR: Cookies are blocked or not supported by your browser" />
-    <meta name="twitter:description" content="La semana pasada tuve este error en un blog de WordPress que estoy desarrollando, así que hago este post como una nota por si me vuelve a salir y puedo recurrir a mi propio blog. Pasos para depuración: 1 Ve..." />
+    <meta name="twitter:description" content="La semana pasada tuve este error en un blog de WordPress que estoy desarrollando, así que hago este post como una nota por si me vuelve a salir y puedo recurrir a mi propio blog. Pasos para depuración: Ve a..." />
     <meta name="twitter:url" content="https://lavaldi.github.io/2015/03/18/ERROR-Cookies-are-blocked-or-not-supported-by-your-browser.html" />
     
     <script type="application/ld+json">
@@ -61,9 +61,9 @@
     "headline": "ERROR: Cookies are blocked or not supported by your browser",
     "url": "https://lavaldi.github.io/2015/03/18/ERROR-Cookies-are-blocked-or-not-supported-by-your-browser.html",
     "datePublished": "2015-03-18T05:00:00.000Z",
-    "dateModified": "2015-03-31T17:37:07.900Z",
+    "dateModified": "2015-03-31T17:40:50.081Z",
     "keywords": "Blog,  WordPress,  cookies,  error",
-    "description": "La semana pasada tuve este error en un blog de WordPress que estoy desarrollando, así que hago este post como una nota por si me vuelve a salir y puedo recurrir a mi propio blog. Pasos para depuración: 1 Ve..."
+    "description": "La semana pasada tuve este error en un blog de WordPress que estoy desarrollando, así que hago este post como una nota por si me vuelve a salir y puedo recurrir a mi propio blog. Pasos para depuración: Ve a..."
 }
     </script>
 
@@ -215,33 +215,27 @@
 <div class="paragraph">
 <p>Pasos para depuración:</p>
 </div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Ve a la página de inicio de sesión (generalmente es así example.com/wp-login.php).</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Presiona <code>Ctrl + Shift + c</code> (o da clic derecho y selecciona "Inspeccionar elemento") para abrir las herramientas de desarrolladores.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Introduce las credenciales en el formulario de login y pulsa Entrar. Luego obtendrás el error.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>En el panel de herramientas de desarrollo ve al panel de Network.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>En la pestaña de Network haz clic en el primer elemento (será wp-login.php) y selecciona la pestaña Headers y desplázate hasta el final.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>Mira la(s) cabecera(s) Set Cookie, presta atención a path= y domain=.</td>
-</tr>
-</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ve a la página de inicio de sesión (generalmente es así example.com/wp-login.php).</p>
+</li>
+<li>
+<p>Presiona <code>Ctrl + Shift + c</code> (o da clic derecho y selecciona "Inspeccionar elemento") para abrir las herramientas de desarrolladores.</p>
+</li>
+<li>
+<p>Introduce las credenciales en el formulario de login y pulsa Entrar. Luego obtendrás el error.</p>
+</li>
+<li>
+<p>En el panel de herramientas de desarrollo ve al panel de Network.</p>
+</li>
+<li>
+<p>En la pestaña de Network haz clic en el primer elemento (será wp-login.php) y selecciona la pestaña Headers y desplázate hasta el final.</p>
+</li>
+<li>
+<p>Mira la(s) cabecera(s) Set Cookie, presta atención a path= y domain=.</p>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
