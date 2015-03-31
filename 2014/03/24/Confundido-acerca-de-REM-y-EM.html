@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>¿Confundido acerca de REM y EM?</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//lavaldi.github.io/themes/Roon/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400">
+    <link rel="stylesheet" type="text/css" href="//lavaldi.github.io/themes/Roon/assets/css/screen.css?v=1.0.0" />
+
+    <link rel="canonical" href="https://lavaldi.github.io/2014/03/24/Confundido-acerca-de-REM-y-EM.html" />
+    
+    <meta property="og:site_name" content="La Valdi" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="¿Confundido acerca de REM y EM?" />
+    <meta property="og:description" content="REM puede ser confuso, especialmente sin una sólida comprensión de su socio de EM y su archivillano, el PX. Unidades Relativas Tanto rem como em son unidades relativas, px no lo es. Antes de considerar rem, es importante entender la..." />
+    <meta property="og:url" content="https://lavaldi.github.io/2014/03/24/Confundido-acerca-de-REM-y-EM.html" />
+    <meta property="article:published_time" content="2014-03-24T05:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-03-31T17:15:20.485Z" />
+    <meta property="article:tag" content="Article" />
+    <meta property="article:tag" content="CSS" />
+    <meta property="article:tag" content="em" />
+    <meta property="article:tag" content="px" />
+    <meta property="article:tag" content="rem" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="¿Confundido acerca de REM y EM?" />
+    <meta name="twitter:description" content="REM puede ser confuso, especialmente sin una sólida comprensión de su socio de EM y su archivillano, el PX. Unidades Relativas Tanto rem como em son unidades relativas, px no lo es. Antes de considerar rem, es importante entender la..." />
+    <meta name="twitter:url" content="https://lavaldi.github.io/2014/03/24/Confundido-acerca-de-REM-y-EM.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "La Valdi",
+    "author": {
+        "@type": "Person",
+        "name": "Claudia",
+        "image": "https://avatars.githubusercontent.com/u/1221474?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": ""
+    },
+    "headline": "¿Confundido acerca de REM y EM?",
+    "url": "https://lavaldi.github.io/2014/03/24/Confundido-acerca-de-REM-y-EM.html",
+    "datePublished": "2014-03-24T05:00:00.000Z",
+    "dateModified": "2015-03-31T17:15:20.485Z",
+    "keywords": "Article,  CSS,  em,  px,  rem",
+    "description": "REM puede ser confuso, especialmente sin una sólida comprensión de su socio de EM y su archivillano, el PX. Unidades Relativas Tanto rem como em son unidades relativas, px no lo es. Antes de considerar rem, es importante entender la..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="La Valdi" href="https://lavaldi.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+<body class="post-template tag-Article tag-CSS tag-em tag-px tag-rem  ">
+
+    
+
+
+    <article role="main" class="">
+        <header>
+            <a href="https://lavaldi.github.io" id="home_link">«</a>
+            <div class="meta"><time datetime="2014-03-24"><a href="/2014/03/24/Confundido-acerca-de-REM-y-EM.html">March 24, 2014</a></time> <span class="count" id="js-reading-time"></span></div>
+            <h1>¿Confundido acerca de REM y EM?</h1>
+        </header>
+
+        <div class="text" id="js-post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>REM puede ser confuso, especialmente sin una sólida comprensión de su socio de EM y su archivillano, el PX.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_unidades_relativas">Unidades Relativas</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tanto rem como em son unidades relativas, px no lo es. Antes de considerar rem, es importante entender la relación con em, el marcado y la herencia.</p>
+</div>
+<div class="paragraph">
+<p>A continuación, el ejemplo demuestra cómo cada hijo anidada asume que el padre es 1 em (100%). Así, los hijos heredan el tamaño mediante la escala en relación con el <code>font-size</code> del padre.</p>
+</div>
+<div class="paragraph">
+<p>Los valores en EM son heredados del padre:</p>
+</div>
+<p data-height="268" data-theme-id="0" data-slug-hash="rCcIh" data-default-tab="result" data-user="jeremychurch" class='codepen'>See the Pen <a href='http://codepen.io/jeremychurch/pen/rCcIh/'>rCcIh</a> by Jeremy Church (<a href='http://codepen.io/jeremychurch'>@jeremychurch</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="paragraph">
+<p>Los valores en PX no se heredan:</p>
+</div>
+<p data-height="268" data-theme-id="0" data-slug-hash="dlyqw" data-default-tab="result" data-user="jeremychurch" class='codepen'>See the Pen <a href='http://codepen.io/jeremychurch/pen/dlyqw/'>dlyqw</a> by Jeremy Church (<a href='http://codepen.io/jeremychurch'>@jeremychurch</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="paragraph">
+<p>Mientras que el valor sigue siendo 0.773em, el tamaño real de la fuente se calcula al 77,3% del padre directo. Esto continúa en el árbol del DOM cada vez que un padre tiene un <code>font-size</code> definido.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_salvar_vidas_con_em">Salvar Vidas con EM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bueno, quizás no salves vidas, sino que le ahorrarás líneas &#8230;&#8203; de código. Los siguientes ejemplos hacen lo mismo; actualizan tamaños de fuente y padding dentro de una media query. Los valores iniciales son calculados mediante el incremento de 1em (16px) en una relación de 1:1,2. Usted puede escoger una ratio/escala diferente  y calcular sus propios valores sobre el <a href="http://type-scale.com/">tipo de escala</a>.</p>
+</div>
+<div class="paragraph">
+<p>Escalas EM mediante la actualización de un valor:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">html { font-size: 1em; }
+h1 { font-size: 2.074em; }
+h2 { font-size: 1.728em; }
+h3 { font-size: 1.44em; }
+h4 { font-size: 1.2em; }
+small { font-size: 0.833em; }
+.box { padding: 1.25em; }
+
+@media screen and (min-width: 1400px) {
+  html { font-size: 1.25em; }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>O bien, vuelve a calcular cada valor en PX</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">html { font-size: 16px; }
+h1 { font-size: 33px; }
+h2 { font-size: 28px; }
+h3 { font-size: 23px; }
+h4 { font-size: 19px; }
+small { font-size: 13px; }
+.box { padding: 20px; }
+
+@media screen and (min-width: 1400px) {
+  html { font-size: 20px; }
+  h1 { font-size: 41px; }
+  h2 { font-size: 35px; }
+  h3 { font-size: 29px; }
+  h4 { font-size: 24px; }
+  small { font-size: 17px; }
+  .box { padding: 25px; }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sólo hay un valor em que sobrescribir en la media query, porque em hereda y escala con respecto a su padre (<code>html</code> en este caso) el tamaño de la fuente.</p>
+</div>
+<div class="paragraph">
+<p>El código es casi el doble al actualizar en px, ya que cada valor tiene que ser recalculado y definido en la media query.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rem_root_em">REM = Root EM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mientras em es relativo al tamaño de la fuente de su padre directo o cercano, rem es sólo en relación con la <code>font-size</code> del <code>html</code> (root). Me gusta pensar en ello como un reset. Si una hoja de estilo está construido de forma modular, rem no debe ser utilizado muy a menudo, pero puede ser útil a veces.</p>
+</div>
+<div class="paragraph">
+<p>Por ejemplo, si estás tratando de lograr el espaciado consistente sin margen, rem se puede utilizar para definir el padding y los margin.</p>
+</div>
+<div class="paragraph">
+<p>EM escalará  los padding y margin demasiado:</p>
+</div>
+<p data-height="268" data-theme-id="0" data-slug-hash="AlxHk" data-default-tab="result" data-user="jeremychurch" class='codepen'>See the Pen <a href='http://codepen.io/jeremychurch/pen/AlxHk/'>AlxHk</a> by Jeremy Church (<a href='http://codepen.io/jeremychurch'>@jeremychurch</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="paragraph">
+<p>Utiliza REM para un padding y margin consistentes</p>
+</div>
+<p data-height="268" data-theme-id="0" data-slug-hash="qjEBs" data-default-tab="result" data-user="jeremychurch" class='codepen'>See the Pen <a href='http://codepen.io/jeremychurch/pen/qjEBs/'>qjEBs</a> by Jeremy Church (<a href='http://codepen.io/jeremychurch'>@jeremychurch</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="paragraph">
+<p><strong>PX</strong> puede ser utilizado para un padding consistente y también para los márgenes, pero no escala a través de las media querys, como <strong>em</strong> y <strong>rem</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusi_n">Conclusión</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Se puede usar <strong>em</strong> para casi todo, <strong>rem</strong> ocasionalmente para el relleno o los márgenes, pero sólo en caso de necesidad, y algunas veces <strong>px</strong> para los bordes.</p>
+</div>
+<div class="paragraph">
+<p>En su mayor parte, generalmente se quiere que los hijos hereden el tamaño. Si una barra lateral que va a ser de un tamaño de letra más pequeño, entonces espero que todos sus hijos cambien el tamaño proporcionalmente sin necesidad de calcular o redefinir selectores individuales.</p>
+</div>
+<div class="paragraph">
+<p>Me cuesta pensar en una buena razón para utilizar <strong>rem</strong> en valores <code>font-size</code>, pero estoy seguro de que hay excepciones. Si yo estoy tratando de restablecer un tamaño de fuente con <strong>rem</strong>, es probable que sea un signo de que mi CSS no es muy modular y se debe refactorizar.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><em>Artículo original <a href="http://j.eremy.net/confused-about-rem-and-em/">Confused About REM and EM?</a> en inglés</em></p>
+</div>
+</div>
+</div>
+        </div>
+
+        <menu>
+            <a href="" id="btn_share" class="btn" title="Share">
+                <span aria-hidden="true" data-icon="S"></span>
+                <strong>Share</strong>
+            </a>
+            <a href="http://twitter.com/share?text=%C2%BFConfundido%20acerca%20de%20REM%20y%20EM%3F&url=https://lavaldi.github.io/2014/03/24/Confundido-acerca-de-REM-y-EM.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" id="btn_comment" class="btn" target="_blank">
+                <span aria-hidden="true" data-icon="C"></span> Comment on Twitter
+            </a>
+        </menu>
+
+
+        <footer class="post-footer" role="contentinfo">
+
+            <div class="vcard">
+                <!-- <a href="https://lavaldi.github.io/rss" id="btn_feed" class="btn" title="Feed" target="_blank">
+                    <span aria-hidden="true" data-icon=")"></span>
+                    <strong>Feed</strong>
+                </a> -->
+
+                <a href="" class="photo">
+                    <span style="background-image: url('https://avatars.githubusercontent.com/u/1221474?v=3');">
+                        <img src="https://avatars.githubusercontent.com/u/1221474?v=3" alt="Claudia">
+                    </span>
+                </a>
+
+                <div class="details">
+                    <h4><a href="" class="url n">Claudia</a></h4>
+                    Perú<br>
+                    
+                </div>
+            </div>
+
+            <div id="user_bio">
+                <div class="inner">
+                    
+                </div>
+            </div>
+
+        </footer>
+
+
+
+
+    </article>
+
+    <div id="share_modal">
+        <div class="wrap">
+            <div class="inner">
+                <header>
+                    Share
+                    <a href="" class="close" title="Close">&times;</a>
+                </header>
+
+                <div class="roon-share-links">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                    <div id="fb-elems">
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=463438580397968";
+                        fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-like" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false" data-font="arial"></div>
+                    </div>
+
+                    <div id="pinit-btn">
+                        <a href="//pinterest.com/pin/create/button/?url=https://lavaldi.github.io/2014/03/24/Confundido-acerca-de-REM-y-EM.html&amp;description=%C2%BFConfundido%20acerca%20de%20REM%20y%20EM%3F-La%20Valdi " data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></a>
+                        <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <a href="https://lavaldi.github.io" id="blog_badge">
+            <span style="background-image: url('http://www.gravatar.com/avatar/d7109476bb571ae62a187f3bb64cfef6.png');">La Valdi</span>
+        </a>
+
+
+    <script>
+
+
+        function no_schema_links () {
+            var links = document.querySelectorAll('.js-remove-domain-schema');
+            if (links) {
+                for (i = 0; i < links.length; ++i) {
+                    var link = links[i],
+                        text = link.innerHTML,
+                        no_schema = text.replace(/.*?:\/\//g, "");
+                    link.innerHTML = no_schema;
+                }
+            }
+        }
+
+        window.onload = function () {
+            no_schema_links();
+
+        }
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+
+
+
+</body>
+</html>
