@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Imagen de background que se ajusta a la pantalla</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//lavaldi.github.io/themes/Roon/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400">
+    <link rel="stylesheet" type="text/css" href="//lavaldi.github.io/themes/Roon/assets/css/screen.css?v=1.0.0" />
+
+    <link rel="canonical" href="https://lavaldi.github.io/2014/02/17/Imagen-de-background-que-se-ajusta-a-la-pantalla.html" />
+    
+    <meta property="og:site_name" content="La Valdi" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Imagen de background que se ajusta a la pantalla" />
+    <meta property="og:description" content="Artículo original escrito inglés en CSS-TRICKS El objetivo de este tutorial es lograr una imagen de fondo en una web que cubra por completo la ventana del navegador en todo momento. A continuación algunos detalles: Rellena página entera con la..." />
+    <meta property="og:url" content="https://lavaldi.github.io/2014/02/17/Imagen-de-background-que-se-ajusta-a-la-pantalla.html" />
+    <meta property="article:published_time" content="2014-02-17T05:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-03-31T16:29:18.839Z" />
+    <meta property="article:tag" content="Tutorial" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="jQuery" />
+    <meta property="article:tag" content="CSS" />
+    <meta property="article:tag" content="background" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Imagen de background que se ajusta a la pantalla" />
+    <meta name="twitter:description" content="Artículo original escrito inglés en CSS-TRICKS El objetivo de este tutorial es lograr una imagen de fondo en una web que cubra por completo la ventana del navegador en todo momento. A continuación algunos detalles: Rellena página entera con la..." />
+    <meta name="twitter:url" content="https://lavaldi.github.io/2014/02/17/Imagen-de-background-que-se-ajusta-a-la-pantalla.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "La Valdi",
+    "author": {
+        "@type": "Person",
+        "name": "Claudia",
+        "image": "https://avatars.githubusercontent.com/u/1221474?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": ""
+    },
+    "headline": "Imagen de background que se ajusta a la pantalla",
+    "url": "https://lavaldi.github.io/2014/02/17/Imagen-de-background-que-se-ajusta-a-la-pantalla.html",
+    "datePublished": "2014-02-17T05:00:00.000Z",
+    "dateModified": "2015-03-31T16:29:18.839Z",
+    "keywords": "Tutorial,  Javascript,  jQuery,  CSS,  background",
+    "description": "Artículo original escrito inglés en CSS-TRICKS El objetivo de este tutorial es lograr una imagen de fondo en una web que cubra por completo la ventana del navegador en todo momento. A continuación algunos detalles: Rellena página entera con la..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="La Valdi" href="https://lavaldi.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+<body class="post-template tag-Tutorial tag-Javascript tag-jQuery tag-CSS tag-background  ">
+
+    
+
+
+    <article role="main" class="">
+        <header>
+            <a href="https://lavaldi.github.io" id="home_link">«</a>
+            <div class="meta"><time datetime="2014-02-17"><a href="/2014/02/17/Imagen-de-background-que-se-ajusta-a-la-pantalla.html">February 17, 2014</a></time> <span class="count" id="js-reading-time"></span></div>
+            <h1>Imagen de background que se ajusta a la pantalla</h1>
+        </header>
+
+        <div class="text" id="js-post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Artículo original escrito inglés en <a href="http://css-tricks.com/perfect-full-page-background-image/">CSS-TRICKS</a></em></p>
+</div>
+<div class="paragraph">
+<p>El objetivo de este tutorial es lograr una imagen de fondo en una web que cubra por completo la ventana del navegador en todo momento. A continuación algunos detalles:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Rellena página entera con la imagen, sin espacios en blanco.</p>
+</li>
+<li>
+<p>Se escala la imagen según sea necesario.</p>
+</li>
+<li>
+<p>Retiene proporciones de la imagen (relación de aspecto).</p>
+</li>
+<li>
+<p>La imagen está centrada en la página.</p>
+</li>
+<li>
+<p>No provoca barras de desplazamiento.</p>
+</li>
+<li>
+<p>Compatible con los diferentes navegadores.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_impresionante_f_cil_y_progresivo_camino_del_css">Impresionante, fácil y progresivo camino del CSS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Esto se puede hacer simplemente a través de CSS, gracias a la propiedad <code>background-size</code> de CSS3. Vamos a utilizar el elemento <code>html</code> (mejor que el body, ya que es siempre por lo menos la altura de la ventana del navegador). Hemos establecido un fondo fijo y centrado en él, y luego ajustar su tamaño usando <code>background-size:cover</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">html {
+  background: url(images/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Funciona en:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Safari 3+</p>
+</li>
+<li>
+<p>Cualquier Chrome.</p>
+</li>
+<li>
+<p>IE 9+</p>
+</li>
+<li>
+<p>Opera 10+.</p>
+</li>
+<li>
+<p>Firefox 3.6+.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_solo_con_css_t_cnica_1">Solo con CSS - Técnica #1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Aquí se utiliza un elemento <code>&lt;img&gt;</code>, que será capaz de cambiar al tamaño de cualquier navegador. Hemos establecido un <code>min-height</code> que lo que hace es llenar la ventana del navegador en posición vertical, y establecido un width de 100%, lo que mantiene el llenado horizontalmente. También establecemos un <code>min-width</code> de la anchura de la imagen para que la imagen nunca se haga más pequeña de lo que realmente es.</p>
+</div>
+<div class="paragraph">
+<p>Luego utilizamos la media query para comprobar si la ventana del navegador es más pequeña que la imagen y usamos un combo de porcetaje en la izquierda y un margen izquierdo negativo para mantenerlo centrado independientemente.</p>
+</div>
+<div class="paragraph">
+<p>Aquí está el CSS:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Funciona en:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cualquier versión de Safari, Chrome, Opera, Firefox.</p>
+</li>
+<li>
+<p>IE 7/8: Funciona, no se centra en los tamaños pequeños, pero cubre bien la pantalla.</p>
+</li>
+<li>
+<p>IE 9: Funciona.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_solo_css_t_cnica_2">Solo CSS Técnica #2:</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Otra forma muy simple de manejar esto es para poner una etiqueta <code>&lt;img&gt;</code>, de posición fija a la parte superior izquierda, y darle un <code>min-width</code> y <code>min-height</code> de 100%, sin deformarse.</p>
+</div>
+<div class="paragraph">
+<p>Sin embargo, esto no centra la imagen y eso es lo que queremos&#8230;&#8203; así que, podemos arreglar eso poniendo la imagen en un div. A ese div lo haremos el doble de grande que la ventana del navegador. Entonces la imagen se colocará, sin deformarse y cubriendo la ventana visible del explorador.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;div id="bg"&gt;
+  &lt;img src="images/bg.jpg" alt=""&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+#bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Funciona en:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sarafi, Chrome, Firefox.</p>
+</li>
+<li>
+<p>IE8+.</p>
+</li>
+<li>
+<p>En Opera (cualquier versión) e IE no funciona, no se sabe por qué.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_m_todo_con_jquery">Método con jQuery:</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Toda esta idea se convierte en mucho más fácil (desde una perspectiva CSS) si sabemos que la relación de aspecto de la imagen (la <code>&lt;img&gt;</code> que intentamos utilizar como fondo) es mayor o menor que la relación de aspecto actual de la ventana del navegador. Si es inferior, lo que podemos  hacer es establecer sólo el ancho a 100% en la imagen y así llenar tanto en altura como en anchura. Si es mayor, podemos establecer sólo la altura a 100% y sabemos que va a llenar la altura y anchura.</p>
+</div>
+<div class="paragraph">
+<p>Tenemos acceso a esta información a través de JavaScript. Y en esta oportunidad nos apoyamos en jQuery:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;img src="images/bg.jpg" id="bg" alt=""&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">#bg { position: fixed; top: 0; left: 0; }
+.bgwidth { width: 100%; }
+.bgheight { height: 100%; }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">$(window).load(function() {
+
+	var theWindow        = $(window),
+	    $bg              = $("#bg"),
+	    aspectRatio      = $bg.width() / $bg.height();
+
+	function resizeBg() {
+
+		if ( (theWindow.width() / theWindow.height()) &lt; aspectRatio ) {
+		    $bg
+		    	.removeClass()
+		    	.addClass('bgheight');
+		} else {
+		    $bg
+		    	.removeClass()
+		    	.addClass('bgwidth');
+		}
+
+	}
+
+	theWindow.resize(resizeBg).trigger("resize");
+
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Esto no tiene en cuenta el centrado, pero definitivamente se podría alterar este código para hacer eso.</p>
+</div>
+<div class="paragraph">
+<p><strong>Funciona en:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IE7+.</p>
+</li>
+<li>
+<p>Cualquier otro navegador.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="sect2 text-center">
+<h3 id="_disfruta">Disfruta!</h3>
+<div class="paragraph">
+<p><a href="http://css-tricks.com/examples/FullPageBackgroundImage.zip"><strong><u> Descargar los Códigos </u></strong></a></p>
+</div>
+</div>
+</div>
+</div>
+        </div>
+
+        <menu>
+            <a href="" id="btn_share" class="btn" title="Share">
+                <span aria-hidden="true" data-icon="S"></span>
+                <strong>Share</strong>
+            </a>
+            <a href="http://twitter.com/share?text=Imagen%20de%20background%20que%20se%20ajusta%20a%20la%20pantalla&url=https://lavaldi.github.io/2014/02/17/Imagen-de-background-que-se-ajusta-a-la-pantalla.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" id="btn_comment" class="btn" target="_blank">
+                <span aria-hidden="true" data-icon="C"></span> Comment on Twitter
+            </a>
+        </menu>
+
+
+        <footer class="post-footer" role="contentinfo">
+
+            <div class="vcard">
+                <!-- <a href="https://lavaldi.github.io/rss" id="btn_feed" class="btn" title="Feed" target="_blank">
+                    <span aria-hidden="true" data-icon=")"></span>
+                    <strong>Feed</strong>
+                </a> -->
+
+                <a href="" class="photo">
+                    <span style="background-image: url('https://avatars.githubusercontent.com/u/1221474?v=3');">
+                        <img src="https://avatars.githubusercontent.com/u/1221474?v=3" alt="Claudia">
+                    </span>
+                </a>
+
+                <div class="details">
+                    <h4><a href="" class="url n">Claudia</a></h4>
+                    Perú<br>
+                    
+                </div>
+            </div>
+
+            <div id="user_bio">
+                <div class="inner">
+                    
+                </div>
+            </div>
+
+        </footer>
+
+
+
+
+    </article>
+
+    <div id="share_modal">
+        <div class="wrap">
+            <div class="inner">
+                <header>
+                    Share
+                    <a href="" class="close" title="Close">&times;</a>
+                </header>
+
+                <div class="roon-share-links">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                    <div id="fb-elems">
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=463438580397968";
+                        fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-like" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false" data-font="arial"></div>
+                    </div>
+
+                    <div id="pinit-btn">
+                        <a href="//pinterest.com/pin/create/button/?url=https://lavaldi.github.io/2014/02/17/Imagen-de-background-que-se-ajusta-a-la-pantalla.html&amp;description=Imagen%20de%20background%20que%20se%20ajusta%20a%20la%20pantalla-La%20Valdi " data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></a>
+                        <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <a href="https://lavaldi.github.io" id="blog_badge">
+            <span style="background-image: url('http://www.gravatar.com/avatar/d7109476bb571ae62a187f3bb64cfef6.png');">La Valdi</span>
+        </a>
+
+
+    <script>
+
+
+        function no_schema_links () {
+            var links = document.querySelectorAll('.js-remove-domain-schema');
+            if (links) {
+                for (i = 0; i < links.length; ++i) {
+                    var link = links[i],
+                        text = link.innerHTML,
+                        no_schema = text.replace(/.*?:\/\//g, "");
+                    link.innerHTML = no_schema;
+                }
+            }
+        }
+
+        window.onload = function () {
+            no_schema_links();
+
+        }
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+
+
+
+</body>
+</html>
