@@ -1360,7 +1360,7 @@ body.touch.user article .readmore {
 }
 
 .text-center{
-  text-align: center;
+  text-align: center!important;
 }
 
 @media only screen and (max-width: 1200px) {
