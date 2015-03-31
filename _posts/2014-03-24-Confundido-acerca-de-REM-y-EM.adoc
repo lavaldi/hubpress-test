@@ -1,0 +1,109 @@
+= ¿Confundido acerca de REM y EM?
+:published_at: 2014-03-24
+
+:hp-tags: Article, CSS, em, px, rem
+
+REM puede ser confuso, especialmente sin una sólida comprensión de su socio de EM y su archivillano, el PX.
+
+== Unidades Relativas
+
+Tanto rem como em son unidades relativas, px no lo es. Antes de considerar rem, es importante entender la relación con em, el marcado y la herencia.
+
+A continuación, el ejemplo demuestra cómo cada hijo anidada asume que el padre es 1 em (100%). Así, los hijos heredan el tamaño mediante la escala en relación con el `font-size` del padre.
+
+Los valores en EM son heredados del padre:
+
+++++
+<p data-height="268" data-theme-id="0" data-slug-hash="rCcIh" data-default-tab="result" data-user="jeremychurch" class='codepen'>See the Pen <a href='http://codepen.io/jeremychurch/pen/rCcIh/'>rCcIh</a> by Jeremy Church (<a href='http://codepen.io/jeremychurch'>@jeremychurch</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+++++
+
+Los valores en PX no se heredan:
+
+++++
+<p data-height="268" data-theme-id="0" data-slug-hash="dlyqw" data-default-tab="result" data-user="jeremychurch" class='codepen'>See the Pen <a href='http://codepen.io/jeremychurch/pen/dlyqw/'>dlyqw</a> by Jeremy Church (<a href='http://codepen.io/jeremychurch'>@jeremychurch</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+++++
+
+Mientras que el valor sigue siendo 0.773em, el tamaño real de la fuente se calcula al 77,3% del padre directo. Esto continúa en el árbol del DOM cada vez que un padre tiene un `font-size` definido.
+
+== Salvar Vidas con EM
+
+Bueno, quizás no salves vidas, sino que le ahorrarás líneas ... de código. Los siguientes ejemplos hacen lo mismo; actualizan tamaños de fuente y padding dentro de una media query. Los valores iniciales son calculados mediante el incremento de 1em (16px) en una relación de 1:1,2. Usted puede escoger una ratio/escala diferente  y calcular sus propios valores sobre el http://type-scale.com/[tipo de escala].
+
+Escalas EM mediante la actualización de un valor:
+
+[source, css]
+----
+html { font-size: 1em; }
+h1 { font-size: 2.074em; }
+h2 { font-size: 1.728em; }
+h3 { font-size: 1.44em; }
+h4 { font-size: 1.2em; }
+small { font-size: 0.833em; }
+.box { padding: 1.25em; }
+
+@media screen and (min-width: 1400px) {
+  html { font-size: 1.25em; }
+}
+----
+
+O bien, vuelve a calcular cada valor en PX
+
+[source, css]
+----
+html { font-size: 16px; }
+h1 { font-size: 33px; }
+h2 { font-size: 28px; }
+h3 { font-size: 23px; }
+h4 { font-size: 19px; }
+small { font-size: 13px; }
+.box { padding: 20px; }
+
+@media screen and (min-width: 1400px) {
+  html { font-size: 20px; }
+  h1 { font-size: 41px; }
+  h2 { font-size: 35px; }
+  h3 { font-size: 29px; }
+  h4 { font-size: 24px; }
+  small { font-size: 17px; }
+  .box { padding: 25px; }
+}
+----
+
+Sólo hay un valor em que sobrescribir en la media query, porque em hereda y escala con respecto a su padre (`html` en este caso) el tamaño de la fuente.
+
+El código es casi el doble al actualizar en px, ya que cada valor tiene que ser recalculado y definido en la media query.
+
+== REM = Root EM
+
+Mientras em es relativo al tamaño de la fuente de su padre directo o cercano, rem es sólo en relación con la `font-size` del `html` (root). Me gusta pensar en ello como un reset. Si una hoja de estilo está construido de forma modular, rem no debe ser utilizado muy a menudo, pero puede ser útil a veces.
+
+Por ejemplo, si estás tratando de lograr el espaciado consistente sin margen, rem se puede utilizar para definir el padding y los margin.
+
+EM escalará  los padding y margin demasiado:
+
+++++
+<p data-height="268" data-theme-id="0" data-slug-hash="AlxHk" data-default-tab="result" data-user="jeremychurch" class='codepen'>See the Pen <a href='http://codepen.io/jeremychurch/pen/AlxHk/'>AlxHk</a> by Jeremy Church (<a href='http://codepen.io/jeremychurch'>@jeremychurch</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+++++
+
+Utiliza REM para un padding y margin consistentes
+
+++++
+<p data-height="268" data-theme-id="0" data-slug-hash="qjEBs" data-default-tab="result" data-user="jeremychurch" class='codepen'>See the Pen <a href='http://codepen.io/jeremychurch/pen/qjEBs/'>qjEBs</a> by Jeremy Church (<a href='http://codepen.io/jeremychurch'>@jeremychurch</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+++++
+
+*PX* puede ser utilizado para un padding consistente y también para los márgenes, pero no escala a través de las media querys, como *em* y *rem*.
+
+== Conclusión
+
+Se puede usar *em* para casi todo, *rem* ocasionalmente para el relleno o los márgenes, pero sólo en caso de necesidad, y algunas veces *px* para los bordes.
+
+En su mayor parte, generalmente se quiere que los hijos hereden el tamaño. Si una barra lateral que va a ser de un tamaño de letra más pequeño, entonces espero que todos sus hijos cambien el tamaño proporcionalmente sin necesidad de calcular o redefinir selectores individuales.
+
+Me cuesta pensar en una buena razón para utilizar *rem* en valores `font-size`, pero estoy seguro de que hay excepciones. Si yo estoy tratando de restablecer un tamaño de fuente con *rem*, es probable que sea un signo de que mi CSS no es muy modular y se debe refactorizar.
+
+'''
+_Artículo original http://j.eremy.net/confused-about-rem-and-em/[Confused About REM and EM?] en inglés_
