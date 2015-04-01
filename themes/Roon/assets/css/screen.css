@@ -1359,7 +1359,7 @@ body.touch.user article .readmore {
     opacity: 1
 }
 
-.text-center{
+.text-center *{
   text-align: center !important;
 }
 
