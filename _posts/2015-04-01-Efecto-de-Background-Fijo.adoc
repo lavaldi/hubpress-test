@@ -1,11 +1,9 @@
 = Efecto de Background Fijo
-:hp-image: http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-content/uploads/2015/03/fixed-background-effect-featured-new.png
-
 :hp-tags: Tutorial, CSS
 
 _Artículo original en inglés http://codyhouse.co/gem/fixed-background-effect/[Fixed Background Effect] publicado en http://codyhouse.co/[CodyHouse]_
 
-'''
+image::http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-content/uploads/2015/03/fixed-background-effect-featured-new.png[Fixed Background Effect]
 
 Aprovechamos la propiedad `background-attachment` de CSS para crear un efecto de fondo fijo.
 
