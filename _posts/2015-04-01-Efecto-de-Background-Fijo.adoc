@@ -1,0 +1,12 @@
+= Efecto de Background Fijo
+:hp-image: http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-content/uploads/2015/03/fixed-background-effect-featured-new.png
+
+:hp-tags: Tutorial, CSS
+
+Aprovechamos la propiedad `background-attachment` de CSS para crear un efecto de fondo fijo.
+
+*Soportado por:*
+
+image::http://i.imgur.com/8d5WpXI.png[]
+
+A veces no es necesario código javascript a lo loco para tener efectos creativos y bonitos. Lo que vamos a ver hoy tiene que ver con una sola propiedad CSS: `background-attachment`. Se puede configurar el fondo que se fija dentro de la ventana ( background-attachment: fixed; ). Hemos utilizado esta ya en nuestra alternativa antecedentes de desplazamiento fijo y plantilla.
