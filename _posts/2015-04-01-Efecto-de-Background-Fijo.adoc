@@ -8,7 +8,7 @@ image::http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-conten
 Aprovechamos la propiedad `background-attachment` de CSS para crear un efecto de fondo fijo.
 
 [.text-center]
-http://codyhouse.co/demo/fixed-background-effect/index.html[Demo] | http://codyhouse.co/redirect/?resource=fixed-background-effect[Descargar Código]
+http://codyhouse.co/demo/fixed-background-effect/index.html[Demo, window="_blank"] | http://codyhouse.co/redirect/?resource=fixed-background-effect[Descargar Código, window="_blank"]
 
 *Soportado por:*
 
@@ -100,7 +100,7 @@ html, body {
 Utilizamos jQuery para implementar un slider básico para navegar por las diferentes secciones (Flechas anterior/siguiente y navegación del teclado). En la ventana de desplazamiento, actualizamos la visibilidad de las flechas (función `checkNavigation()`) y detectaremos la sección visible en la vista (la clase `.is-visible` se asigna utilizando la función `checkVisibleSection()`). Las funciones `nextSection()` y `prevSection()` se utilizan para navegar a la sección siguiente/anterior.
 
 [.text-center]
-http://codyhouse.co/demo/fixed-background-effect/index.html[Demo] | http://codyhouse.co/redirect/?resource=fixed-background-effect[Descargar Código]
+http://codyhouse.co/demo/fixed-background-effect/index.html[Demo, window="_blank"] | http://codyhouse.co/redirect/?resource=fixed-background-effect[Descargar Código, window="_blank"]
 
 '''
 
