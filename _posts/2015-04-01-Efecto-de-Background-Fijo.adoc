@@ -3,10 +3,107 @@
 
 :hp-tags: Tutorial, CSS
 
+_Artículo original en inglés http://codyhouse.co/gem/fixed-background-effect/[Fixed Background Effect] publicado en http://codyhouse.co/[CodyHouse]_
+
+'''
+
 Aprovechamos la propiedad `background-attachment` de CSS para crear un efecto de fondo fijo.
+
+[.text-center]
+http://codyhouse.co/demo/fixed-background-effect/index.html[Demo] | http://codyhouse.co/redirect/?resource=fixed-background-effect[Descargar Código]
 
 *Soportado por:*
 
-image::http://i.imgur.com/8d5WpXI.png[]
+image::http://i.imgur.com/8d5WpXI.png[Navegadores soportados]
 
-A veces no es necesario código javascript a lo loco para tener efectos creativos y bonitos. Lo que vamos a ver hoy tiene que ver con una sola propiedad CSS: `background-attachment`. Se puede configurar el fondo que se fija dentro de la ventana ( background-attachment: fixed; ).
+A veces no es necesario código javascript a lo loco para tener efectos creativos y bonitos. Lo que vamos a ver hoy tiene que ver con una sola propiedad CSS: `background-attachment`. Se puede configurar el fondo fijo dentro de la ventana (`background-attachment: fixed;`).
+
+
+El truco aquí es tener el mismo elemento (en este caso un teléfono) en la misma posición en todas las imágenes de fondo, por lo que mientras se hace scroll todo se mueve, menos el teléfono.
+
+Los únicos assets que se necesitan son diferentes imágenes, con el mismo tamaño y un elemento común en la misma posición.
+
+image::http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-content/uploads/2015/03/assets-needed.gif[Test, align=center]
+
+== Creación de la estructura
+
+La estructura HTML es bastante básica: cada sección contiene un elemento `.content` con el título y párrafo. Clases `.img-1`, `.img-2` etc se utilizan para crear diferentes imágenes de fondo en CSS. El `.cd-vertical-nav` es la flecha de navegación (visible sólo en dispositivos grandes). Los `data-type` se han utilizado para identificar en jQuery las secciones/items del slider.
+
+[source, css]
+----
+<section class="cd-fixed-background img-1" data-type="slider-item">
+	<div class="cd-content">
+		<h2>Title here</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolor beatae, laudantium eos fugiat, deserunt delectus quibusdam quae placeat, tempora ea? Nulla ducimus, magnam sunt repellendus modi, ad ipsam est.</p>
+	</div>
+</section>
+ 
+<section class="cd-fixed-background img-2" data-type="slider-item">
+	<!-- ... -->
+</section>
+ 
+<nav>
+	<ul class="cd-vertical-nav">
+		<li><a href="#0" class="cd-prev inactive">Next</a></li>
+		<li><a href="#0" class="cd-next">Prev</a></li>
+	</ul> <!-- cd-vertical-nav -->
+</nav>
+----
+
+== Agregando estilo
+
+Un par de cosas importantes a tener en cuenta: los dispositivos iOS no les gusta `background-attachment: fixed;`, por lo tanto, +++<u>en dispositivos pequeños el efecto de fondo fijo no será visible</u>+++. También en dispositivos pequeños que no usamos `background-images` todavía, pero inyectamos fotos pequeñas de los teléfonos como `::after` pseudo-elementos del elemento `.cd-content`.
+
+[source, css]
+----
+.cd-fixed-background .cd-content::after {
+	/* phone image on small devices */
+	content: '';
+	display: block;
+	width: 100%;
+	padding: 60% 0;
+	margin: 2em auto 0;
+}
+----
+
+En segundo lugar, ya que estamos utilizando `background-images`, no podemos tener el 100% del control en donde aparecerá el elemento fijo (el teléfono en este caso). Esto es difícil de aceptar si estás obsesionado por la perfección de píxeles, pero no pude encontrar una solución para eso.
+
+Este es todo el código que necesita para alcanzar el efecto de fondo fijo:
+
+[source, css]
+----
+html, body {
+ 	height: 100%;
+}
+ 
+.cd-fixed-background {
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+ 
+.cd-fixed-background.img-1 {
+	background-image: url("../img/img-1.jpg");
+}
+ 
+.cd-fixed-background.img-2 {
+	background-image: url("../img/img-2.jpg");
+}
+ 
+.cd-fixed-background.img-3 {
+	background-image: url("../img/img-3.jpg");
+}
+----
+
+== Manejo de Eventos
+
+Utilizamos jQuery para implementar un slider básico para navegar por las diferentes secciones (Flechas anterior/siguiente y navegación del teclado). En la ventana de desplazamiento, actualizamos la visibilidad de las flechas (función `checkNavigation()`) y detectaremos la sección visible en la vista (la clase `.is-visible` se asigna utilizando la función `checkVisibleSection()`). Las funciones `nextSection()` y `prevSection()` se utilizan para navegar a la sección siguiente/anterior.
+
+[.text-center]
+http://codyhouse.co/demo/fixed-background-effect/index.html[Demo] | http://codyhouse.co/redirect/?resource=fixed-background-effect[Descargar Código]
+
+'''
+
+_Artículo original en inglés http://codyhouse.co/gem/fixed-background-effect/[Fixed Background Effect] publicado en http://codyhouse.co/[CodyHouse]_
