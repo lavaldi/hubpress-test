@@ -9,4 +9,4 @@ Aprovechamos la propiedad `background-attachment` de CSS para crear un efecto de
 
 image::http://i.imgur.com/8d5WpXI.png[]
 
-A veces no es necesario código javascript a lo loco para tener efectos creativos y bonitos. Lo que vamos a ver hoy tiene que ver con una sola propiedad CSS: `background-attachment`. Se puede configurar el fondo que se fija dentro de la ventana ( background-attachment: fixed; ). Hemos utilizado esta ya en nuestra alternativa antecedentes de desplazamiento fijo y plantilla.
+A veces no es necesario código javascript a lo loco para tener efectos creativos y bonitos. Lo que vamos a ver hoy tiene que ver con una sola propiedad CSS: `background-attachment`. Se puede configurar el fondo que se fija dentro de la ventana ( background-attachment: fixed; ).
