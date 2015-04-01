@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Efecto de Background Fijo</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//lavaldi.github.io/themes/Roon/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400">
+    <link rel="stylesheet" type="text/css" href="//lavaldi.github.io/themes/Roon/assets/css/screen.css?v=1.0.0" />
+
+    <link rel="canonical" href="https://lavaldi.github.io/2015/04/01/Efecto-de-Background-Fijo.html" />
+    
+    <meta property="og:site_name" content="La Valdi" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Efecto de Background Fijo" />
+    <meta property="og:description" content="Artículo original en inglés Fixed Background Effect publicado en CodyHouse Aprovechamos la propiedad background-attachment de CSS para crear un efecto de fondo fijo. Demo | Descargar Código Soportado por: A veces no es necesario código javascript a lo loco para tener..." />
+    <meta property="og:url" content="https://lavaldi.github.io/2015/04/01/Efecto-de-Background-Fijo.html" />
+    <meta property="og:image" content="http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-content/uploads/2015/03/fixed-background-effect-featured-new.png" />
+    <meta property="article:published_time" content="2015-04-01T05:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-04-01T22:48:17.735Z" />
+    <meta property="article:tag" content="Tutorial" />
+    <meta property="article:tag" content="CSS" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Efecto de Background Fijo" />
+    <meta name="twitter:description" content="Artículo original en inglés Fixed Background Effect publicado en CodyHouse Aprovechamos la propiedad background-attachment de CSS para crear un efecto de fondo fijo. Demo | Descargar Código Soportado por: A veces no es necesario código javascript a lo loco para tener..." />
+    <meta name="twitter:url" content="https://lavaldi.github.io/2015/04/01/Efecto-de-Background-Fijo.html" />
+    <meta name="twitter:image:src" content="http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-content/uploads/2015/03/fixed-background-effect-featured-new.png" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "La Valdi",
+    "author": {
+        "@type": "Person",
+        "name": "Claudia Valdivieso",
+        "image": "https://avatars.githubusercontent.com/u/1221474?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": "https://lavaldi.github.io"
+    },
+    "headline": "Efecto de Background Fijo",
+    "url": "https://lavaldi.github.io/2015/04/01/Efecto-de-Background-Fijo.html",
+    "datePublished": "2015-04-01T05:00:00.000Z",
+    "dateModified": "2015-04-01T22:48:17.735Z",
+    "image": "http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-content/uploads/2015/03/fixed-background-effect-featured-new.png",
+    "keywords": "Tutorial,  CSS",
+    "description": "Artículo original en inglés Fixed Background Effect publicado en CodyHouse Aprovechamos la propiedad background-attachment de CSS para crear un efecto de fondo fijo. Demo | Descargar Código Soportado por: A veces no es necesario código javascript a lo loco para tener..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="La Valdi" href="https://lavaldi.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+<body class="post-template tag-Tutorial tag-CSS  ">
+
+    
+
+        <div id="feature_image">
+            <div class="inner" style="background-image: url('http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-content/uploads/2015/03/fixed-background-effect-featured-new.png')">
+                <img src="http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-content/uploads/2015/03/fixed-background-effect-featured-new.png">
+            </div>
+        </div>
+
+    <article role="main" class="image">
+        <header>
+            <a href="https://lavaldi.github.io" id="home_link">«</a>
+            <div class="meta"><time datetime="2015-04-01"><a href="/2015/04/01/Efecto-de-Background-Fijo.html">April 01, 2015</a></time> <span class="count" id="js-reading-time"></span></div>
+            <h1>Efecto de Background Fijo</h1>
+        </header>
+
+        <div class="text" id="js-post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Artículo original en inglés <a href="http://codyhouse.co/gem/fixed-background-effect/">Fixed Background Effect</a> publicado en <a href="http://codyhouse.co/">CodyHouse</a></em></p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Aprovechamos la propiedad <code>background-attachment</code> de CSS para crear un efecto de fondo fijo.</p>
+</div>
+<div class="paragraph text-center">
+<p><a href="http://codyhouse.co/demo/fixed-background-effect/index.html">Demo</a> | <a href="http://codyhouse.co/redirect/?resource=fixed-background-effect">Descargar Código</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Soportado por:</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://i.imgur.com/8d5WpXI.png" alt="Navegadores soportados">
+</div>
+</div>
+<div class="paragraph">
+<p>A veces no es necesario código javascript a lo loco para tener efectos creativos y bonitos. Lo que vamos a ver hoy tiene que ver con una sola propiedad CSS: <code>background-attachment</code>. Se puede configurar el fondo fijo dentro de la ventana (<code>background-attachment: fixed;</code>).</p>
+</div>
+<div class="paragraph">
+<p>El truco aquí es tener el mismo elemento (en este caso un teléfono) en la misma posición en todas las imágenes de fondo, por lo que mientras se hace scroll todo se mueve, menos el teléfono.</p>
+</div>
+<div class="paragraph">
+<p>Los únicos assets que se necesitan son diferentes imágenes, con el mismo tamaño y un elemento común en la misma posición.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://0bf196087c14ed19d1f11cf1.ambercreativelab.netdna-cdn.com/wp-content/uploads/2015/03/assets-needed.gif" alt="Test">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creaci_n_de_la_estructura">Creación de la estructura</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La estructura HTML es bastante básica: cada sección contiene un elemento <code>.content</code> con el título y párrafo. Clases <code>.img-1</code>, <code>.img-2</code> etc se utilizan para crear diferentes imágenes de fondo en CSS. El <code>.cd-vertical-nav</code> es la flecha de navegación (visible sólo en dispositivos grandes). Los <code>data-type</code> se han utilizado para identificar en jQuery las secciones/items del slider.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">&lt;section class="cd-fixed-background img-1" data-type="slider-item"&gt;
+	&lt;div class="cd-content"&gt;
+		&lt;h2&gt;Title here&lt;/h2&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolor beatae, laudantium eos fugiat, deserunt delectus quibusdam quae placeat, tempora ea? Nulla ducimus, magnam sunt repellendus modi, ad ipsam est.&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class="cd-fixed-background img-2" data-type="slider-item"&gt;
+	&lt;!-- ... --&gt;
+&lt;/section&gt;
+
+&lt;nav&gt;
+	&lt;ul class="cd-vertical-nav"&gt;
+		&lt;li&gt;&lt;a href="#0" class="cd-prev inactive"&gt;Next&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#0" class="cd-next"&gt;Prev&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt; &lt;!-- cd-vertical-nav --&gt;
+&lt;/nav&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_agregando_estilo">Agregando estilo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Un par de cosas importantes a tener en cuenta: los dispositivos iOS no les gusta <code>background-attachment: fixed;</code>, por lo tanto, <u>en dispositivos pequeños el efecto de fondo fijo no será visible</u>. También en dispositivos pequeños que no usamos <code>background-images</code> todavía, pero inyectamos fotos pequeñas de los teléfonos como <code>::after</code> pseudo-elementos del elemento <code>.cd-content</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">.cd-fixed-background .cd-content::after {
+	/* phone image on small devices */
+	content: '';
+	display: block;
+	width: 100%;
+	padding: 60% 0;
+	margin: 2em auto 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>En segundo lugar, ya que estamos utilizando <code>background-images</code>, no podemos tener el 100% del control en donde aparecerá el elemento fijo (el teléfono en este caso). Esto es difícil de aceptar si estás obsesionado por la perfección de píxeles, pero no pude encontrar una solución para eso.</p>
+</div>
+<div class="paragraph">
+<p>Este es todo el código que necesita para alcanzar el efecto de fondo fijo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">html, body {
+ 	height: 100%;
+}
+
+.cd-fixed-background {
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+
+.cd-fixed-background.img-1 {
+	background-image: url("../img/img-1.jpg");
+}
+
+.cd-fixed-background.img-2 {
+	background-image: url("../img/img-2.jpg");
+}
+
+.cd-fixed-background.img-3 {
+	background-image: url("../img/img-3.jpg");
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_manejo_de_eventos">Manejo de Eventos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Utilizamos jQuery para implementar un slider básico para navegar por las diferentes secciones (Flechas anterior/siguiente y navegación del teclado). En la ventana de desplazamiento, actualizamos la visibilidad de las flechas (función <code>checkNavigation()</code>) y detectaremos la sección visible en la vista (la clase <code>.is-visible</code> se asigna utilizando la función <code>checkVisibleSection()</code>). Las funciones <code>nextSection()</code> y <code>prevSection()</code> se utilizan para navegar a la sección siguiente/anterior.</p>
+</div>
+<div class="paragraph text-center">
+<p><a href="http://codyhouse.co/demo/fixed-background-effect/index.html">Demo</a> | <a href="http://codyhouse.co/redirect/?resource=fixed-background-effect">Descargar Código</a></p>
+</div>
+<hr>
+<div class="paragraph">
+<p><em>Artículo original en inglés <a href="http://codyhouse.co/gem/fixed-background-effect/">Fixed Background Effect</a> publicado en <a href="http://codyhouse.co/">CodyHouse</a></em></p>
+</div>
+</div>
+</div>
+        </div>
+
+        <menu>
+            <a href="" id="btn_share" class="btn" title="Share">
+                <span aria-hidden="true" data-icon="S"></span>
+                <strong>Share</strong>
+            </a>
+            <a href="http://twitter.com/share?text=Efecto%20de%20Background%20Fijo&url=https://lavaldi.github.io/2015/04/01/Efecto-de-Background-Fijo.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" id="btn_comment" class="btn" target="_blank">
+                <span aria-hidden="true" data-icon="C"></span> Comment on Twitter
+            </a>
+        </menu>
+
+
+        <footer class="post-footer" role="contentinfo">
+
+            <div class="vcard">
+                <!-- <a href="https://lavaldi.github.io/rss" id="btn_feed" class="btn" title="Feed" target="_blank">
+                    <span aria-hidden="true" data-icon=")"></span>
+                    <strong>Feed</strong>
+                </a> -->
+
+                <a href="" class="photo">
+                    <span style="background-image: url('https://avatars.githubusercontent.com/u/1221474?v=3');">
+                        <img src="https://avatars.githubusercontent.com/u/1221474?v=3" alt="Claudia Valdivieso">
+                    </span>
+                </a>
+
+                <div class="details">
+                    <h4><a href="https://lavaldi.github.io" class="url n">Claudia Valdivieso</a></h4>
+                    Perú<br>
+                    <a href="https://lavaldi.github.io" class="js-remove-domain-schema">https://lavaldi.github.io</a>
+                </div>
+            </div>
+
+            <div id="user_bio">
+                <div class="inner">
+                    
+
+                    On the narrow road... | Co-founder <a href="https://twitter.com/spinitytech" target="_blank">@SpinityTech</a> | <a href="https://twitter.com/bonzzu" target="_blank">@bonzzu</a> team | #Frontend | <a href="https://twitter.com/yisus_freak" target="_blank">#JesusFreak</a> | <a href="https://medium.com/@lavaldi_" target="_blank">https://medium.com/@lavaldi_</a>
+                </div>
+            </div>
+
+        </footer>
+
+
+
+
+    <section class="post-comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      var disqus_shortname = 'lavaldiblog'; // required: replace example with your forum shortname
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+
+
+    </article>
+
+    <div id="share_modal">
+        <div class="wrap">
+            <div class="inner">
+                <header>
+                    Share
+                    <a href="" class="close" title="Close">&times;</a>
+                </header>
+
+                <div class="roon-share-links">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                    <div id="fb-elems">
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=463438580397968";
+                        fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-like" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false" data-font="arial"></div>
+                    </div>
+
+                    <div id="pinit-btn">
+                        <a href="//pinterest.com/pin/create/button/?url=https://lavaldi.github.io/2015/04/01/Efecto-de-Background-Fijo.html&amp;description=Efecto%20de%20Background%20Fijo-La%20Valdi " data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></a>
+                        <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <a href="https://lavaldi.github.io" id="blog_badge">
+            <span style="background-image: url('http://www.gravatar.com/avatar/d7109476bb571ae62a187f3bb64cfef6.png');">La Valdi</span>
+        </a>
+
+
+    <script>
+
+
+        function no_schema_links () {
+            var links = document.querySelectorAll('.js-remove-domain-schema');
+            if (links) {
+                for (i = 0; i < links.length; ++i) {
+                    var link = links[i],
+                        text = link.innerHTML,
+                        no_schema = text.replace(/.*?:\/\//g, "");
+                    link.innerHTML = no_schema;
+                }
+            }
+        }
+
+        window.onload = function () {
+            no_schema_links();
+
+        }
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+
+        <script>
+
+            $(function(){
+                var share_modal = $("#share_modal"),
+                    update_social_links = true;
+
+                $("#btn_share").click(function(){
+                    var that = $(this);
+                    share_modal.fadeIn(200);
+                    return false;
+                });
+
+                share_modal.click(function(e){
+                    if (e.target.className == "wrap" || e.target.id == "share_modal") {
+                        share_modal.fadeOut(200);
+                    }
+                    return false;
+                });
+
+                share_modal.find("div.inner > header > a.close").click(function(){
+                    share_modal.fadeOut(200);
+                    return false;
+                });
+            });
+
+        </script>
+
+
+
+
+</body>
+</html>
