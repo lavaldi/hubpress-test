@@ -1,4 +1,5 @@
 = Una gran actualización de las especificaciones de Material Design de Google
+:hp-tags: Material Design, Resources, Learn
 
 Google acaba de lanzar una gran actualización de sus especificaciones de Material Design que incluye una serie de importantes cambios y adiciones. Hay nuevas secciones para tablas de datos, unidades y medidas, estructura de la aplicación, y más, junto con cambios a la tipografía, tarjetas, cuadros de diálogo, de las fichas, y las técnicas de desplazamiento.
 
