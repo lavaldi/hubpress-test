@@ -1,0 +1,7 @@
+= Una gran actualización de las especificaciones de Material Design de Google
+
+Google acaba de lanzar una gran actualización de sus especificaciones de Material Design que incluye una serie de importantes cambios y adiciones. Hay nuevas secciones para tablas de datos, unidades y medidas, estructura de la aplicación, y más, junto con cambios a la tipografía, tarjetas, cuadros de diálogo, de las fichas, y las técnicas de desplazamiento.
+
+image:http://i.imgur.com/xDBO9dZ.png[Material Design, align=center]
+
+Enlace: http://bit.ly/1IOBKcd[Google Design Guidelines]
